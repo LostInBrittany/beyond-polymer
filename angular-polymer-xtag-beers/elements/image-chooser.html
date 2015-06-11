@@ -1,0 +1,17 @@
+<script src="/bower_components/x-tag-core/dist/x-tag-core.js"></script>
+
+<script>
+  xtag.register('image-chooser', {
+    content: function () {/*
+      <p>Hello there</p>
+      <div>
+        <p>This is a multi-line template</p>
+      </div>
+    */},
+    lifecycle: {
+      created: function () {
+        console.log("image-chooser created");
+      }
+    }
+});
+</script>

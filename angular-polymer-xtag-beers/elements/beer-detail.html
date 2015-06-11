@@ -1,0 +1,77 @@
+<!-- Import Polymer library -->
+<link rel="import" href="/bower_components/polymer/polymer.html">
+
+
+<!-- Import iron-ajax to get the list of beers from the server -->
+<link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
+
+<!-- Import iron-ajax to get the list of beers from the server -->
+<link rel="import" href="image-chooser.html">
+
+
+<dom-module id="beer-detail">
+  <template>
+    <div id="{{id}}" class="beer clearfix">
+      <img class="pull-right el-img" src="{{img}}">
+      <h2 class="el-name">{{name}}</h2>
+      <p class="el-description">{{description}}</p>
+      <p class="pull-right el-alcohol">Alcohol content: <span>{{alcohol}}</span>%</p>
+      <image-chooser></image-chooser>
+    </div>  
+  <iron-ajax
+    id="ajax"
+    auto
+    url="{{url}}"
+    method='get'
+    params='{}'
+    handle-as="json"
+    on-response="gotBeer"
+    debounce-duration="300"></iron-ajax>
+  </template>
+  <style>
+    .beer {
+      margin: 10px;
+      padding: 10px;
+      border: solid 1px black;
+      border-radius: 10px;
+      min-height: 150px;
+    }
+    .el-img {
+      max-height: 100px;
+    }
+    .el-alcohol {
+      clear:both;
+    }
+  </style>
+</dom-module>
+
+<script>
+Polymer({
+  is: 'beer-detail',
+
+  properties: {
+    id: {
+      type: String,
+      observer: "idChanged"
+    },
+    url: {
+      type: String,
+      computed: "getUrl(id)"
+    } 
+  },
+  idChanged: function(newVal, oldVal) {
+    console.log("idChanged",newVal);
+  },
+  gotBeer: function(event, ironRequest) {
+    this.beer = ironRequest.response;
+    this.name = this.beer.name;
+    this.description = this.beer.description;
+    this.alcohol = this.beer.alcohol;
+    this.img = this.beer.img;
+  },
+  getUrl: function(id) {
+    console.log("getUrl changed, new value =", "../beers/"+id+".json")
+    return "./beers/"+id+".json"
+  }
+})
+</script>
