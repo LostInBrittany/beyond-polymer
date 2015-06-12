@@ -4,6 +4,22 @@ import React from 'react/addons';
 import Axios from 'axios';
 import ReactWebComponent from './webcomponent';
 
+const Style = {
+  beer: {
+    margin: 10,
+    padding: 10,
+    border: "solid 1px black",
+    borderRadius: 10,
+    minHeight: 150
+  },
+  elImg: {
+    maxHeight: 100
+  },
+  elAlcohol: {
+    clear: 'both'
+  }
+};
+
 const BeerDetail = React.createClass({
   getInitialState() {
     return {
@@ -37,11 +53,11 @@ const BeerDetail = React.createClass({
   },
   render() {
     return (
-      <div id={this.props.id} class="beer clearfix">
-        <img class="pull-right el-img" src={this.state.img} />
-        <h2 class="el-name">{this.state.name}</h2>
-        <p class="el-description">{this.state.description}</p>
-        <p class="pull-right el-alcohol">
+      <div id={this.props.id} className="beer clearfix" style={Style.beer}>
+        <img className="pull-right el-img" style={Style.elImg} src={this.state.img} />
+        <h2 className="el-name">{this.state.name}</h2>
+        <p className="el-description">{this.state.description}</p>
+        <p className="pull-right el-alcohol" style={Style.elAlcohol}>
           <span>Alcohol content: </span>
           <span>{this.state.alcohol}</span>
           <span>%</span>

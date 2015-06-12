@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "18a66180ce21831a014b"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "c9e0d20114441d3632e9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -598,6 +598,22 @@
 	
 	var ReactWebComponent = _interopRequire(__webpack_require__(/*! ./webcomponent */ 207));
 	
+	var Style = {
+	  beer: {
+	    margin: 10,
+	    padding: 10,
+	    border: "solid 1px black",
+	    borderRadius: 10,
+	    minHeight: 150
+	  },
+	  elImg: {
+	    maxHeight: 100
+	  },
+	  elAlcohol: {
+	    clear: "both"
+	  }
+	};
+	
 	var BeerDetail = React.createClass({
 	  displayName: "BeerDetail",
 	
@@ -636,21 +652,21 @@
 	  render: function render() {
 	    return React.createElement(
 	      "div",
-	      { id: this.props.id, "class": "beer clearfix" },
-	      React.createElement("img", { "class": "pull-right el-img", src: this.state.img }),
+	      { id: this.props.id, className: "beer clearfix", style: Style.beer },
+	      React.createElement("img", { className: "pull-right el-img", style: Style.elImg, src: this.state.img }),
 	      React.createElement(
 	        "h2",
-	        { "class": "el-name" },
+	        { className: "el-name" },
 	        this.state.name
 	      ),
 	      React.createElement(
 	        "p",
-	        { "class": "el-description" },
+	        { className: "el-description" },
 	        this.state.description
 	      ),
 	      React.createElement(
 	        "p",
-	        { "class": "pull-right el-alcohol" },
+	        { className: "pull-right el-alcohol", style: Style.elAlcohol },
 	        React.createElement(
 	          "span",
 	          null,
@@ -26399,6 +26415,22 @@
 	
 	var ReactWebComponent = _interopRequire(__webpack_require__(/*! ./webcomponent */ 207));
 	
+	var Style = {
+	  beer: {
+	    margin: 10,
+	    padding: 10,
+	    border: "solid 1px black",
+	    borderRadius: 10,
+	    minHeight: 150
+	  },
+	  elImg: {
+	    maxHeight: 100
+	  },
+	  elAlcohol: {
+	    clear: "both"
+	  }
+	};
+	
 	var BeerListItem = React.createClass({
 	  displayName: "BeerListItem",
 	
@@ -26408,21 +26440,21 @@
 	  render: function render() {
 	    return React.createElement(
 	      "div",
-	      { id: this.props.id, "class": "beer clearfix" },
-	      React.createElement("img", { "class": "pull-right el-img", src: this.props.img }),
+	      { id: this.props.id, className: "beer clearfix", style: Style.beer },
+	      React.createElement("img", { className: "pull-right el-img", style: Style.elImg, src: this.props.img }),
 	      React.createElement(
 	        "h2",
-	        { "class": "el-name" },
+	        { className: "el-name" },
 	        this.props.name
 	      ),
 	      React.createElement(
 	        "p",
-	        { "class": "el-description" },
+	        { className: "el-description" },
 	        this.props.description
 	      ),
 	      React.createElement(
 	        "p",
-	        { "class": "pull-right el-alcohol" },
+	        { className: "pull-right el-alcohol", style: Style.elAlcohol },
 	        "Alcohol content: ",
 	        React.createElement(
 	          "span",
@@ -26495,13 +26527,13 @@
 	    });
 	    return React.createElement(
 	      "div",
-	      { "class": "container" },
+	      { className: "container" },
 	      React.createElement(
 	        "div",
-	        { "class": "row" },
+	        { className: "row" },
 	        React.createElement(
 	          "div",
-	          { "class": "col-md-2" },
+	          { className: "col-md-2" },
 	          React.createElement(
 	            "div",
 	            null,
@@ -26544,10 +26576,10 @@
 	        ),
 	        React.createElement(
 	          "div",
-	          { "class": "col-md-10" },
+	          { className: "col-md-10" },
 	          React.createElement(
 	            "div",
-	            { "class": "beers" },
+	            { className: "beers" },
 	            items
 	          )
 	        )

@@ -30,9 +30,9 @@ const BeerList = React.createClass({
       );
     });
     return (
-      <div class="container">
-        <div class="row">
-          <div class="col-md-2">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-2">
             <div>Search: <input value="" /></div>
             <div>
               Sort by:
@@ -45,8 +45,8 @@ const BeerList = React.createClass({
             </div>
             <div>Number of results: <span>9999</span></div>
           </div>
-          <div class="col-md-10">
-            <div class="beers">
+          <div className="col-md-10">
+            <div className="beers">
               {items}
             </div>
           </div>
