@@ -4,6 +4,11 @@
 <!-- Import iron-ajax to get the list of beers from the server -->
 <link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
 
+
+<!-- Import iron-ajax to get the list of beers from the server -->
+<link rel="import" href="image-chooser.html">
+
+
 <dom-module id="beer-list">
   <style>
     /* CSS rules for your element */
@@ -35,6 +40,8 @@
                 description="{{item.description}}" 
                 img="{{item.img}}" alcohol="{{item.alcohol}}">
               </beer-list-item>
+              
+      <image-chooser></image-chooser>
             </template>
           </div>
         </div>

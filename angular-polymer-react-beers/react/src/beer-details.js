@@ -17,6 +17,11 @@ const Style = {
   },
   elAlcohol: {
     clear: 'both'
+  },
+  centered: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    clear: 'both'
   }
 };
 
@@ -30,7 +35,7 @@ const BeerDetail = React.createClass({
     };
   },
   fetchDetails() {
-    Axios.get(`../beers/${this.props.id}.json`).then(resp => {
+    Axios.get(`./beers/${this.props.id}.json`).then(resp => {
       this.setState({
         name: resp.data.name,
         description: resp.data.description,
@@ -62,6 +67,7 @@ const BeerDetail = React.createClass({
           <span>{this.state.alcohol}</span>
           <span>%</span>
         </p>
+        <div className="centered"  style={Style.centered}>Proudly made with React.js</div>
       </div>
     );
   }
