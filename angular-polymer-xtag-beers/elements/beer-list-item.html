@@ -1,47 +1,90 @@
-!-- Import Polymer library -->
-<link rel="import" href="/bower_components/polymer/polymer.html">
-
-
-<!-- Import iron-ajax to get the list of beers from the server -->
-<link rel="import" href="image-chooser.html">
-
-<dom-module id="beer-list-item">
-  <template>
-    <div id="{{id}}" class="beer clearfix">
-      <img class="pull-right el-img" src="{{img}}">
-      <h2 class="el-name">{{name}}</h2>
-      <p class="el-description">{{description}}</p>
-      <p class="pull-right el-alcohol">Alcohol content: <span>{{alcohol}}</span>%</p>
-      <image-chooser></image-chooser>
-    </div>
-  </template>
-  <style>
-    .beer {
-      margin: 10px;
-      padding: 10px;
-      border: solid 1px black;
-      border-radius: 10px;
-      min-height: 150px;
-    }
-    .el-img {
-      max-height: 100px;
-    }
-    .el-alcohol {
-      clear:both;
-    }
-  </style>
-</dom-module>
+<script src="/bower_components/x-tag-core/dist/x-tag-core.js"></script>
 
 <script>
-Polymer({
-  is: 'beer-list-item',
+  xtag.register('beer-list-item', {
+    content: function () {/*
+      <div class="beer clearfix">
+        <img class="pull-right el-img">
+        <h2 class="el-name"></h2>
+        <p class="el-description"></p>
+        <p class="pull-right el-alcohol">Alcohol content: <span class="el-alcohol-content"></span>%</p>
+        <div class="el-signature">Prodly made with x-tag</div>
+      </div>
+      <style>
+        .beer {
+          margin: 10px;
+          padding: 10px;
+          border: solid 1px black;
+          border-radius: 10px;
+          min-height: 150px;
+        }
+        .el-img {
+          max-height: 100px;
+        }
+        .el-alcohol {
+          clear:both;
+        }
+        .el-signature {
+          text-align: center;
+          clear: both;
+          font-weight: bold;
+        }
+      </style>
+    */},
+    accessors: {
+      id: {
+        attribute: { } // creates a boolean attribute.  enabled=""
+      },
+      name: {
+        attribute: { } // use a different attribute name
+      },
+      description: {
+        attribute: { } // use a different attribute name
+      },      
+      alcohol: {
+        attribute: { } // use a different attribute name
+      },      
+      img: {
+        attribute: { } // use a different attribute name
+      }
+    },
+    lifecycle: {
+      created: function () {
+        this.render();
+      },
+      attributeChanged: function (name, oldValue, newValue) {
+        this.render();      
+      }
+    },
+    methods: {
+      render: function() {
+        var beerSelector = this.querySelector('.beer');
 
-  properties: {
-    id: String,
-    name: String,
-    description: String,
-    img: String,
-    alcohol: String
-  }
-})
+        var name = this.hasAttribute('name') ?
+              this.getAttribute('name') : '';      
+        xtag.innerHTML(beerSelector.querySelector('.el-name'), name);
+
+        var description = this.hasAttribute('description') ?
+              this.getAttribute('description') : '';      
+        xtag.innerHTML(beerSelector.querySelector('.el-description'), description);
+
+        var img = this.hasAttribute('img') ?
+              this.getAttribute('img') : '';      
+        beerSelector.querySelector('.el-img').src = img;
+
+        var alcohol = this.hasAttribute('alcohol') ?
+              this.getAttribute('alcohol') : '';      
+        xtag.innerHTML(beerSelector.querySelector('.el-alcohol-content'), alcohol);
+
+        var beer = {
+          name: name,
+          description: description,
+          img: img,
+          alcohol: alcohol
+        }
+
+        console.log("Rendered with name "+name, beer);
+      } 
+    }
+});
 </script>
