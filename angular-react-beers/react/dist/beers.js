@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c9e0d20114441d3632e9"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "cf63befa49a99194ccf9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -26505,7 +26505,11 @@
 	
 	  getInitialState: function getInitialState() {
 	    return {
-	      items: []
+	      items: [],
+	      filterText: "",
+	      descendingSort: true,
+	      criteria: [{ name: "name", label: "Alphabetical" }, { name: "alcohol", label: "Alcohol content" }],
+	      criterium: "name"
 	    };
 	  },
 	  fetchBeers: function fetchBeers() {
@@ -26518,13 +26522,44 @@
 	  componentDidMount: function componentDidMount() {
 	    this.fetchBeers();
 	  },
+	  beerFilter: function beerFilter(item) {
+	    return item.name.match(new RegExp(this.state.filterText, "i"));
+	  },
+	  getCurrentBeers: function getCurrentBeers() {
+	    return this.state.items.filter(this.beerFilter).length;
+	  },
+	  beerSorter: function beerSorter(a, b) {
+	    var invert = 1;
+	    if (this.state.descendingSort) invert = -1;
+	    if (a[this.state.criterium] === b[this.state.criterium]) {
+	      return 0;
+	    }if (a[this.state.criterium] < b[this.state.criterium]) {
+	      return -1 * invert;
+	    }if (a[this.state.criterium] > b[this.state.criterium]) {
+	      return 1 * invert;
+	    }
+	  },
+	  updateFilter: function updateFilter(e) {
+	    e.preventDefault();
+	    this.setState({
+	      filterText: e.target.value
+	    });
+	  },
+	  updateSort: function updateSort() {
+	    this.setState({
+	      descendingSort: !this.state.descendingSort
+	    });
+	  },
 	  render: function render() {
-	    var items = (this.state.items || []).map(function (item) {
+	    var items = (this.state.items || []).filter(this.beerFilter).map(function (item) {
 	      return React.createElement(BeerListItem, {
 	        id: item.id, name: item.name,
 	        description: item.description,
 	        img: item.img, alcohol: item.alcohol });
 	    });
+	    if (!this.state.descendingSort) {
+	      items = items.reverse();
+	    }
 	    return React.createElement(
 	      "div",
 	      { className: "container" },
@@ -26538,28 +26573,14 @@
 	            "div",
 	            null,
 	            "Search: ",
-	            React.createElement("input", { value: "" })
-	          ),
-	          React.createElement(
-	            "div",
-	            null,
-	            "Sort by:",
-	            React.createElement(
-	              "select",
-	              { value: "" },
-	              React.createElement(
-	                "option",
-	                { value: "--" },
-	                "--"
-	              )
-	            )
+	            React.createElement("input", { value: this.state.filterText, onChange: this.updateFilter })
 	          ),
 	          React.createElement(
 	            "div",
 	            null,
 	            React.createElement(
 	              "input",
-	              { type: "checkbox", checked: "", name: "sortingOrder" },
+	              { type: "checkbox", checked: this.state.descendingSort, onChange: this.updateSort, name: "sortingOrder" },
 	              " Descending sort"
 	            )
 	          ),
@@ -26570,7 +26591,7 @@
 	            React.createElement(
 	              "span",
 	              null,
-	              "9999"
+	              items.length
 	            )
 	          )
 	        ),
