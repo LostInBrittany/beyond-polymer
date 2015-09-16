@@ -22,6 +22,11 @@
       .el-alcohol {
         clear:both;
       }
+      .el-signature {
+        text-align: center;
+        font-weight: bold;
+        clear: both;
+      }
     </style>
 
     <div id="{{id}}" class="beer clearfix">
@@ -29,6 +34,7 @@
       <h2 class="el-name">{{name}}</h2>
       <p class="el-description">{{description}}</p>
       <p class="pull-right el-alcohol">Alcohol content: <span>{{alcohol}}</span>%</p>
+      <div class="el-signature">Proudly made with Polymer 1.1</div>
     </div>
     <iron-ajax
       id="ajax"

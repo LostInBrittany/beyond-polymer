@@ -4,20 +4,21 @@
 <!-- Import iron-ajax to get the list of beers from the server -->
 <link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
 
-
-<!-- Import iron-ajax to get the list of beers from the server -->
-<link rel="import" href="image-chooser.html">
-
-
 <dom-module id="beer-list">
-  <template>
+    <template>
 
     <style>
       /* CSS rules for your element */
+      .el-signature {
+        text-align: center;
+        font-weight: bold;
+        clear: both;
+      }
     </style>
 
     <div class="container">
       <div class="row">
+
         <div class="col-md-2">
           <!--Sidebar content-->
           <div>Search: <input value="{{filterText::input}}"></div>
@@ -33,7 +34,10 @@
             <input type="checkbox" checked="{{descendingSort::change}}" name="sortingOrder"> Descending sort
           </div>
           <div>Number of results: <span>{{currentBeers}}</span></div>
+          <hr>
+          <div class="el-signature">Proudly made with Polymer 1.1</div>
         </div>
+
         <div class="col-md-10">
           <div class="beers">
             <template id="beerList" is="dom-repeat" items="{{beers}}" filter="beerFilter" sort="beerSorter">
@@ -45,6 +49,7 @@
             </template>
           </div>
         </div>
+
       </div>
     </div>
     <iron-ajax
@@ -55,7 +60,6 @@
       handle-as="json"
       on-response="gotBeers"
       debounce-duration="300"></iron-ajax>
-      
   </template>
 </dom-module>
 
