@@ -33,19 +33,19 @@
     */},
     accessors: {
       id: {
-        attribute: { } // creates a boolean attribute.  enabled=""
+        attribute: { }
       },
       name: {
-        attribute: { } // use a different attribute name
+        attribute: { }
       },
       description: {
-        attribute: { } // use a different attribute name
-      },      
+        attribute: { }
+      },
       alcohol: {
-        attribute: { } // use a different attribute name
-      },      
+        attribute: { }
+      },
       img: {
-        attribute: { } // use a different attribute name
+        attribute: { }
       }
     },
     lifecycle: {
@@ -53,7 +53,7 @@
         this.render();
       },
       attributeChanged: function (name, oldValue, newValue) {
-        this.render();      
+        this.render();
       }
     },
     methods: {
@@ -61,23 +61,23 @@
         var beerSelector = this.querySelector('.beer');
 
         var name = this.hasAttribute('name') ?
-              this.getAttribute('name') : '';      
+              this.getAttribute('name') : '';
         xtag.innerHTML(beerSelector.querySelector('.el-name'), name);
 
         var description = this.hasAttribute('description') ?
-              this.getAttribute('description') : '';      
+              this.getAttribute('description') : '';
         xtag.innerHTML(beerSelector.querySelector('.el-description'), description);
 
         var img = this.hasAttribute('img') ?
-              this.getAttribute('img') : '';      
+              this.getAttribute('img') : '';
         beerSelector.querySelector('.el-img').src = img;
 
         var alcohol = this.hasAttribute('alcohol') ?
-              this.getAttribute('alcohol') : '';      
+              this.getAttribute('alcohol') : '';
         xtag.innerHTML(beerSelector.querySelector('.el-alcohol-content'), alcohol);
 
         var id = this.hasAttribute('id') ?
-              this.getAttribute('id') : ''; 
+              this.getAttribute('id') : '';
         beerSelector.querySelector('.el-link').href = "./#/beers/"+id;
 
         var beer = {
@@ -88,7 +88,7 @@
         }
 
         console.log("Rendered with name "+name, beer);
-      } 
+      }
     }
 });
 </script>
