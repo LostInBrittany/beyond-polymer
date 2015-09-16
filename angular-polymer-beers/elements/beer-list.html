@@ -9,6 +9,11 @@
 
     <style>
       /* CSS rules for your element */
+      .el-signature {
+        text-align: center;
+        font-weight: bold;
+        clear: both;
+      }
     </style>
 
     <div class="container">
@@ -29,6 +34,8 @@
             <input type="checkbox" checked="{{descendingSort::change}}" name="sortingOrder"> Descending sort
           </div>
           <div>Number of results: <span>{{currentBeers}}</span></div>
+          <hr>
+          <div class="el-signature">Proudly made with Polymer 1.1</div>
         </div>
 
         <div class="col-md-10">
