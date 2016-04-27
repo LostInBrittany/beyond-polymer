@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "license": "http://polymer.github.io/LICENSE.txt",
   "dependencies": {
-    "bootstrap": "~3.3.4",
-    "polymer": "~1.0.0",
-    "iron-ajax": "PolymerElements/iron-ajax#^1.0.0",
-    "angular": "~1.4.0",
-    "angular-route": "~1.4.0"
+    "bootstrap": "~3.3.6",
+    "polymer": "~1.4.0",
+    "iron-ajax": "~1.2.0",
+    "angular": "~1.5.5",
+    "angular-route": "~1.5.5",
+    "x-tag-core": "~1.5.6"
   }
 }
