@@ -1,24 +1,24 @@
-# X-Tag - Custom Elements for Modern Browsers
+# X-Tag - Rocket fuel for component development
 
 [![Bower version](https://badge.fury.io/bo/x-tag-core.svg)](http://badge.fury.io/bo/x-tag-core)
 
-[![Build Status](https://travis-ci.org/x-tag/core.png)](https://travis-ci.org/x-tag/core)
+[![NPM version](https://badge.fury.io/js/x-tag.svg)](https://badge.fury.io/js/x-tag)
 
-[![Selenium Test Status](https://saucelabs.com/browser-matrix/aschaar.svg)](https://saucelabs.com/u/aschaar)
+**This is the repository for the core [X-Tag](http://x-tag.github.io/) library.**
 
-**This is the repository for the core [X-Tag](http://x-tags.org) library.**
+X-Tag is a Microsoft supported, open source, JavaScript library that wraps the W3C standard Web Components family of APIs to provide a compact, feature-rich interface for rapid component development. While X-Tag offers feature hooks for all Web Component APIs (Custom Elements, Shadow DOM, Templates, and HTML Imports), it only requires [Custom Element][1] support to operate. In the absence of native Custom Element support, X-Tag uses a set of polyfills shared with Google's Polymer framework.
 
-Based on the current W3 Web Components [draft][1], X-Tag enables the custom element portion of the proposal.
-Custom elements let you register new tags/elements with the parser, so they are recognized and inflated with
-special abilities you define.
-
-You can find out more about what X-Tag does, where it works, and how to use it, on the project page: [http://x-tags.org](http://x-tags.org).
-
-X-Tag (excluding third-party icons or images) is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
+You can find out more about what X-Tag does, where it works, and how to use it, on the project page: [x-tag.github.io](http://x-tag.github.io/).
 
   [1]: https://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html       "W3 Web Components Spec (Draft)"
 
-## Getting started
+## Snag X-Tag from NPM
+
+````bash
+npm install x-tag
+````
+
+## Pull our repo from Github
 
 To get started hacking on X-Tag core:
 
@@ -33,7 +33,7 @@ If you are interested in building your own custom elements, you can use our [web
 
 ## Updating
 
-If you already cloned the library and want to update to the latest changes, do:
+If you already cloned the library and want to update your build with changes to Core, do:
 
 ````bash
 cd x-tag-core
@@ -46,7 +46,7 @@ This assumes you just cloned the library and its remote repository is labelled `
 
 ## Tests
 
-Jasmine tests via grunt are not working yet, please open [test/index.html](test/index.html) in your browser to see if everything passes.
+We use Jasmine to test the library, and you can verify it works as expected by opening [test/index.html](test/index.html) in your browser to run the tests.
 
 
 ## Regenerating the distributable build
@@ -64,7 +64,7 @@ and both `x-tag-core.js` and `x-tag-core.min.js` will be rebuilt and placed in t
 
 ## Creating your own web components
 
-To learn more about X-Tags visit [x-tags.org](http://x-tags.org).
+To learn more about X-Tags visit [x-tag.github.io](http://x-tag.github.io/).
 
 To create your own component, use our [web-component-stub](https://github.com/x-tag/web-component-stub).
 
