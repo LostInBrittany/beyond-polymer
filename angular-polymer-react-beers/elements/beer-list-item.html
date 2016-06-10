@@ -4,7 +4,7 @@
 <dom-module id="beer-list-item">
   <template>
     <div id="{{id}}" class="beer clearfix">
-      <img class="pull-right el-img" src="{{img}}">
+      <img class="pull-right el-img" src="../{{img}}">
       <a href="{{url}}"><h2 class="el-name">{{name}}</h2></a>
       <p class="el-description">{{description}}</p>
       <p class="pull-right el-alcohol">Alcohol content: <span>{{alcohol}}</span>%</p>
@@ -49,7 +49,7 @@ Polymer({
     }
   },
   getUrl: function(id) {
-    return "./#/beers/"+id;
+    return "#/beers/"+id;
   }
 
 })

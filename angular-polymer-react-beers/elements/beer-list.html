@@ -2,7 +2,7 @@
 <link rel="import" href="beer-list-item.html">
 
 <!-- Import iron-ajax to get the list of beers from the server -->
-<link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
 <dom-module id="beer-list">
   <style>
@@ -42,7 +42,7 @@
     </div>  
     <iron-ajax
       auto
-      url="../beers/beers.json"
+      url="../../beers/beers.json"
       method='get'
       params='{}'
       handle-as="json"
